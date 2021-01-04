@@ -3,23 +3,27 @@ package parser;
 import java.util.ArrayList;
 import java.util.List;
 
-import parser.classifier.Classifier;
+import parser.classifier.Event;
 /**
- * This class defines the concept of a trace variant. Traces are considered as equal with regard to different criteria.
- * @author Martin Kaeppel
+ * This class defines the concept of a trace variant. Traces are considered as equal with regard to different criteria. The Classifier defines
+ * one or more process perspectives that our considered for determining the trace variant.
+ * 
+ * @author 	Martin Kaeppel
+ * @version	18.12.2020
+ * 
  */
 public class TraceVariant {
-	List<Classifier> events = new ArrayList<Classifier>();
+	List<Event> events = new ArrayList<Event>();
 	
 	public TraceVariant() {
 		
 	}
 	
-	public void addEvent(Classifier classifier) {
-		events.add(classifier);
+	public void addEvent(Event event) {
+		events.add(event);
 	}
 	
-	public List<Classifier> getEvents() {
+	public List<Event> getEvents() {
 		return events;
 	}
 	
@@ -44,7 +48,7 @@ public class TraceVariant {
 		for(int i = 0; i < events.size(); i++) {
 			sb.append(events.get(i));
 			if(i != events.size()-1) {
-				sb.append("\t-->");
+				sb.append("\t-->\t");
 			}
 		}
 		return sb.toString();

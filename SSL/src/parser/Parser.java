@@ -14,12 +14,11 @@ import org.deckfour.xes.extension.std.XConceptExtension;
 import org.deckfour.xes.extension.std.XLifecycleExtension;
 import org.deckfour.xes.extension.std.XOrganizationalExtension;
 import org.deckfour.xes.extension.std.XTimeExtension;
-import org.deckfour.xes.model.XAttribute;
 import org.deckfour.xes.model.XEvent;
 import org.deckfour.xes.model.XLog;
 import org.deckfour.xes.model.XTrace;
 
-import parser.classifier.ActivityClassifier;
+import parser.classifier.Classifier;
 import parser.classifier.Prefix;
 import parser.organizational.RoleExtractor;
 
@@ -372,6 +371,31 @@ public class Parser {
 		return activities;
 	}
 	
+	public Map<String, Integer> getCountedActivities(XLog log) {
+		Map<String, Integer> countedActivities = new HashMap<String, Integer>();
+		Iterator<XTrace> logIterator = log.iterator();
+		while(logIterator.hasNext()) {
+			XTrace currentTrace = logIterator.next();
+			Iterator<XEvent> traceIterator = currentTrace.iterator();
+			
+			while(traceIterator.hasNext()) {
+				XEvent currentEvent = traceIterator.next();
+				String activity = currentEvent.getAttributes().get(XConceptExtension.KEY_NAME).toString();
+				if(countedActivities.keySet().contains(activity)) {
+					countedActivities.put(activity, countedActivities.get(activity)+1);
+				}
+				else {
+					countedActivities.put(activity, 1);
+				}
+			}
+		}
+		return countedActivities;
+	}
+	
+	public Map<String, Integer> getCountedActivityWithLifecycle(XLog log) {
+		return null;
+	}
+	
 	/** 
 	 * Returns a set of all activities concatenated with lifecycle transition in a given event log. If a transition is missing, the transition is handled as a empty string
 	 * @param log
@@ -429,69 +453,29 @@ public class Parser {
 	 * @param log
 	 * @return Set of the variant
 	 */
-	public Set<TraceVariant> getTraceVariants(XLog log) {
+	public Set<TraceVariant> getTraceVariants(XLog log, Classifier classifier) {
 		Set<TraceVariant> variants = new HashSet<TraceVariant>();
 		
 		Iterator<XTrace> logIterator = log.iterator();
 		while(logIterator.hasNext()) {
 			XTrace currentTrace = logIterator.next();
-			Iterator<XEvent> traceIterator = currentTrace.iterator();
-			
-			TraceVariant variant = new TraceVariant();
-			while(traceIterator.hasNext()) {
-				XEvent currentEvent = traceIterator.next();
-				ActivityClassifier classifier = new ActivityClassifier(currentEvent.getAttributes().get(XConceptExtension.KEY_NAME).toString());
-				variant.addEvent(classifier);
-			}
-			variants.add(variant);
+			variants.add(classifier.extractTraceVariant(currentTrace));
 		}
 		
 		return variants;
 	}
 	
-	/**
-	 * Returns a set of TraceVariants by considering the lifecycle of the activities
-	 * @param log
-	 */
-	public Set<TraceVariant> getTraceVariantsWithLifecycle(XLog log) {
-		Set<TraceVariant> variants = new HashSet<TraceVariant>();
-		
-		Iterator<XTrace> logIterator = log.iterator();
-		while(logIterator.hasNext()) {
-			XTrace currentTrace = logIterator.next();
-			Iterator<XEvent> traceIterator = currentTrace.iterator();
-			
-			TraceVariant variant = new TraceVariant();
-			while(traceIterator.hasNext()) {
-				XEvent currentEvent = traceIterator.next();
-				
-				String lifecycle = currentEvent.getAttributes().get(XLifecycleExtension.KEY_TRANSITION).toString();
-				String activity = currentEvent.getAttributes().get(XConceptExtension.KEY_NAME).toString();
-				
-				ActivityClassifier classifier = null;
-				if(lifecycle != null) {
-					classifier = new ActivityClassifier(activity+"-"+lifecycle);
-				}
-				else {
-					classifier = new ActivityClassifier(activity);
-				}
-				variant.addEvent(classifier);
-			}
-			variants.add(variant);
-		}
-		
-		return variants;
-	}
 	
 	/**
 	 * Count the number of occurence of each TraceVariant
 	 * @param log
 	 * @param lifecycle
 	 */
-	public Map<TraceVariant, Integer> getCountedTraceVariants(XLog log) {
+	 
+	public Map<TraceVariant, Integer> getCountedTraceVariants(XLog log, Classifier classifier) {
 		Map<TraceVariant, Integer> countedVariants = new HashMap<TraceVariant, Integer>();
 		
-		Set<TraceVariant> variants = getTraceVariants(log);
+		Set<TraceVariant> variants = getTraceVariants(log, classifier);
 		
 		for(TraceVariant variant : variants) {
 			countedVariants.put(variant, new Integer(0));
@@ -499,56 +483,8 @@ public class Parser {
 		
 		Iterator<XTrace> logIterator = log.iterator();
 		while(logIterator.hasNext()) {
-			XTrace currentTrace = logIterator.next();
-			Iterator<XEvent> traceIterator = currentTrace.iterator();
-			
-			TraceVariant variant = new TraceVariant();
-			while(traceIterator.hasNext()) {
-				XEvent currentEvent = traceIterator.next();
-				ActivityClassifier classifier = new ActivityClassifier(currentEvent.getAttributes().get(XConceptExtension.KEY_NAME).toString());
-				variant.addEvent(classifier);
-			}
-			
-			countedVariants.put(variant, countedVariants.get(variant)+1);
-		}
-		
-		return countedVariants;
-	}
-	
-	/**
-	 * Count the number of occurence of each TraceVariant by considering the lifecycle
-	 * @param log
-	 * @param lifecycle
-	 */
-	public Map<TraceVariant, Integer> getCountedTraceVariantsWithLifecycle(XLog log) {
-		Map<TraceVariant, Integer> countedVariants = new HashMap<TraceVariant, Integer>();
-		
-		Set<TraceVariant> variants = getTraceVariantsWithLifecycle(log);
-		
-		for(TraceVariant variant : variants) {
-			countedVariants.put(variant, new Integer(0));
-		}
-		
-		Iterator<XTrace> logIterator = log.iterator();
-		while(logIterator.hasNext()) {
-			XTrace currentTrace = logIterator.next();
-			Iterator<XEvent> traceIterator = currentTrace.iterator();
-			
-			TraceVariant variant = new TraceVariant();
-			while(traceIterator.hasNext()) {
-				XEvent currentEvent = traceIterator.next();
-				String lifecycle = currentEvent.getAttributes().get(XLifecycleExtension.KEY_TRANSITION).toString();
-				String activity = currentEvent.getAttributes().get(XConceptExtension.KEY_NAME).toString();
-				
-				ActivityClassifier classifier = null;
-				if(lifecycle != null) {
-					classifier = new ActivityClassifier(activity+"-"+lifecycle);
-				}
-				else {
-					classifier = new ActivityClassifier(activity);
-				}				variant.addEvent(classifier);
-			}
-			
+			XTrace currentTrace = logIterator.next();			
+			TraceVariant variant = classifier.extractTraceVariant(currentTrace);
 			countedVariants.put(variant, countedVariants.get(variant)+1);
 		}
 		
@@ -644,7 +580,7 @@ public class Parser {
 	 * Calculates the distribution of TraceVariants TO DO: Lifecycle und weitere Varianten Arten
 	 * @param variants
 	 * @param log
-	 */
+	 
 	public Map<TraceVariant, DistributionObject> getDistribution(Set<TraceVariant> variants, XLog log) {
 		Map<TraceVariant, DistributionObject> distribution = new HashMap<TraceVariant, DistributionObject>();
 		
@@ -780,5 +716,16 @@ public class Parser {
 			}
 		}
 		return eventAttributes;
+	}
+	
+	public XTrace getTraceByCaseID(XLog log, String caseID) {
+		Iterator<XTrace> logIterator = log.iterator();
+		while(logIterator.hasNext()) {
+			XTrace currentTrace = logIterator.next();
+			if(caseID.equals(currentTrace.getAttributes().get(XConceptExtension.KEY_NAME).toString())) {
+				return currentTrace;
+			}
+		}
+		return null;
 	}
 }

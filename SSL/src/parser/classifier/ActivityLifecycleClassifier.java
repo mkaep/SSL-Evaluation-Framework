@@ -3,29 +3,30 @@ package parser.classifier;
 import java.util.Iterator;
 
 import org.deckfour.xes.extension.std.XConceptExtension;
+import org.deckfour.xes.extension.std.XLifecycleExtension;
 import org.deckfour.xes.model.XEvent;
 import org.deckfour.xes.model.XTrace;
 
 import parser.TraceVariant;
 
-/**
- * Defines the activity classifier. Two traces are considered as identical if the sequence of activities is the same.
- * @author Martin Kaeppel
- */
-public class ActivityClassifier extends Classifier {
+public class ActivityLifecycleClassifier extends Classifier {
 	
-	public ActivityClassifier() {
+	public ActivityLifecycleClassifier() {
+		
 	}
-	
+
 	@Override
 	public TraceVariant extractTraceVariant(XTrace trace) {
 		TraceVariant variant = new TraceVariant();
 		Iterator<XEvent> traceIterator = trace.iterator();
 		while(traceIterator.hasNext()) {
 			XEvent currentEvent = traceIterator.next();
-			Event event = new Event(currentEvent.getAttributes().get(XConceptExtension.KEY_NAME).toString());
-			variant.addEvent(event);
+			String activity = currentEvent.getAttributes().get(XConceptExtension.KEY_NAME).toString();
+			String lifecycle = currentEvent.getAttributes().get(XLifecycleExtension.KEY_TRANSITION).toString();
+
+			variant.addEvent(new Event(activity+"-"+lifecycle));
 		}
 		return variant;
 	}
+
 }

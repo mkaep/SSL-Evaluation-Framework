@@ -3,14 +3,12 @@ package preprocessing;
 import java.util.Iterator;
 import java.util.Set;
 
-import org.deckfour.xes.extension.std.XConceptExtension;
 import org.deckfour.xes.factory.XFactory;
 import org.deckfour.xes.factory.XFactoryBufferedImpl;
-import org.deckfour.xes.model.XEvent;
 import org.deckfour.xes.model.XLog;
 import org.deckfour.xes.model.XTrace;
 
-import parser.classifier.ActivityClassifier;
+import parser.classifier.Classifier;
 import parser.Parser;
 import parser.TraceVariant;
 /**
@@ -23,9 +21,9 @@ public class Flattening {
 		
 	}
 	
-	public XLog flatteningLog(XLog log) {
+	public XLog flatteningLog(XLog log, Classifier classifier) {
 		Parser p = new Parser();
-		Set<TraceVariant> variants = p.getTraceVariants(log);
+		Set<TraceVariant> variants = p.getTraceVariants(log, classifier);
 		
 		XFactory factory = new XFactoryBufferedImpl();
 		XLog flattenedLog = factory.createLog();
@@ -33,14 +31,7 @@ public class Flattening {
 		Iterator<XTrace> logIterator = log.iterator();
 		while(logIterator.hasNext()) {
 			XTrace currentTrace = logIterator.next();
-			Iterator<XEvent> traceIterator = currentTrace.iterator();
-			
-			TraceVariant variant = new TraceVariant();
-			while(traceIterator.hasNext()) {
-				XEvent currentEvent = traceIterator.next();
-				ActivityClassifier classifier = new ActivityClassifier(currentEvent.getAttributes().get(XConceptExtension.KEY_NAME).toString());
-				variant.addEvent(classifier);
-			}
+			TraceVariant variant = classifier.extractTraceVariant(currentTrace);
 			
 			if(variants.contains(variant)) {
 				flattenedLog.add(currentTrace);

@@ -1,38 +1,28 @@
 package parser.classifier;
 
+import java.util.Iterator;
+
+import org.deckfour.xes.extension.std.XOrganizationalExtension;
+import org.deckfour.xes.model.XEvent;
+import org.deckfour.xes.model.XTrace;
+
+import parser.TraceVariant;
+
 public class ResourceClassifier extends Classifier {
 	
-	private int index;
-	
-	public ResourceClassifier(int index) {
-		this.index = index;
-	}
-	
-	public void setIndex(int index) {
-		this.index = index;
-	}
-	
-	public int getIndex() {
-		return index;
-	}
-	
-	public String toString() {
-		return index+"";
+	public ResourceClassifier() {
 	}
 	
 	@Override
-	public boolean equals(Object o) {		
-		if(!(o instanceof ResourceClassifier)) {
-			return false;
+	public TraceVariant extractTraceVariant(XTrace trace) {
+		TraceVariant variant = new TraceVariant();
+		Iterator<XEvent> traceIterator = trace.iterator();
+		while(traceIterator.hasNext()) {
+			XEvent currentEvent = traceIterator.next();
+			Event event = new Event(currentEvent.getAttributes().get(XOrganizationalExtension.KEY_RESOURCE).toString());
+			variant.addEvent(event);
 		}
-		else {
-			ResourceClassifier e = (ResourceClassifier) o;
-			return ((index == e.getIndex()));
-		}		
-	}
-	
-	public int hashCode() {
-		return 0;
+		return variant;
 	}
 	
 

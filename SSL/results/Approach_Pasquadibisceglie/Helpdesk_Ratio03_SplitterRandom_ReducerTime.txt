@@ -1,0 +1,347 @@
+Training File: I:\Lab\Real_Life_Event_Logs\Helpdesk\data\SplitterRandom\0.3\ReducerByTime\Pasquadibisceglie\inp_log_train_red_001.csv
+ Training-Test-Ratio: 03
+ Splitter: Random
+ Reducer: Time
+ Reduction Factor: 99
+ Test File: I:\Lab\Real_Life_Event_Logs\Helpdesk\data\SplitterRandom\0.3\ReducerByTime\Pasquadibisceglie\inp_log_test.csv
+              precision    recall  f1-score   support
+
+           0    0.93548   0.87879   0.90625        33
+           1    1.00000   1.00000   1.00000        29
+           3    0.75862   1.00000   0.86275        22
+           4    0.66667   1.00000   0.80000         2
+           5    1.00000   0.50000   0.66667         6
+           7    0.00000   0.00000   0.00000         3
+
+    accuracy                        0.89474        95
+   macro avg    0.72680   0.72980   0.70594        95
+weighted avg    0.88309   0.89474   0.87881        95
+
+Accuracy on test data: 0.417149156332016
+Loss on test data: 1.7460727758370782              precision    recall  f1-score   support
+
+           0    0.57412   0.54267   0.55795      1406
+           1    0.90053   0.37034   0.52484      1369
+           2    0.00000   0.00000   0.00000         1
+           3    0.16968   0.50513   0.25403       390
+           4    0.02486   0.48148   0.04727        27
+           5    0.70213   0.08661   0.15421       381
+           6    0.00000   0.00000   0.00000        18
+           7    0.00000   0.00000   0.00000        28
+           8    0.00000   0.00000   0.00000         1
+           9    0.00000   0.00000   0.00000         1
+          11    0.00000   0.00000   0.00000         5
+
+    accuracy                        0.41715      3627
+   macro avg    0.21557   0.18057   0.13985      3627
+weighted avg    0.65464   0.41715   0.45826      3627
+
+------------------------------------------
+Training File: I:\Lab\Real_Life_Event_Logs\Helpdesk\data\SplitterRandom\0.3\ReducerByTime\Pasquadibisceglie\inp_log_train_red_005.csv
+ Training-Test-Ratio: 03
+ Splitter: Random
+ Reducer: Time
+ Reduction Factor: 95
+ Test File: I:\Lab\Real_Life_Event_Logs\Helpdesk\data\SplitterRandom\0.3\ReducerByTime\Pasquadibisceglie\inp_log_test.csv
+              precision    recall  f1-score   support
+
+           0    0.75141   0.79167   0.77101       168
+           1    0.98000   0.96711   0.97351       152
+           3    0.68786   0.90840   0.78289       131
+           4    0.00000   0.00000   0.00000         3
+           5    0.88889   0.43243   0.58182        37
+           6    0.00000   0.00000   0.00000         7
+           7    1.00000   0.19048   0.32000        21
+          11    0.00000   0.00000   0.00000         2
+          12    0.00000   0.00000   0.00000         1
+
+    accuracy                        0.80268       522
+   macro avg    0.47868   0.36556   0.38103       522
+weighted avg    0.80306   0.80268   0.78220       522
+
+Accuracy on test data: 0.3702784776687622
+Loss on test data: 1.6564921115363043              precision    recall  f1-score   support
+
+           0    0.27718   0.27383   0.27549      1406
+           1    0.90543   0.37765   0.53299      1369
+           2    0.00000   0.00000   0.00000         1
+           3    0.21554   0.78974   0.33865       390
+           4    0.00000   0.00000   0.00000        27
+           5    0.55932   0.34646   0.42788       381
+           6    0.00000   0.00000   0.00000        18
+           7    0.50000   0.03571   0.06667        28
+           8    0.00000   0.00000   0.00000         1
+           9    0.00000   0.00000   0.00000         1
+          11    0.00000   0.00000   0.00000         5
+
+    accuracy                        0.37028      3627
+   macro avg    0.22341   0.16576   0.14924      3627
+weighted avg    0.53499   0.37028   0.38984      3627
+
+------------------------------------------
+Training File: I:\Lab\Real_Life_Event_Logs\Helpdesk\data\SplitterRandom\0.3\ReducerByTime\Pasquadibisceglie\inp_log_train_red_01.csv
+ Training-Test-Ratio: 03
+ Splitter: Random
+ Reducer: Time
+ Reduction Factor: 90
+ Test File: I:\Lab\Real_Life_Event_Logs\Helpdesk\data\SplitterRandom\0.3\ReducerByTime\Pasquadibisceglie\inp_log_test.csv
+              precision    recall  f1-score   support
+
+           0    0.77007   0.63746   0.69752       331
+           1    0.90643   0.99678   0.94946       311
+           3    0.56268   0.89767   0.69176       215
+           4    0.00000   0.00000   0.00000         6
+           5    0.77778   0.13462   0.22951        52
+           6    0.00000   0.00000   0.00000        10
+           7    1.00000   0.02439   0.04762        41
+          11    0.00000   0.00000   0.00000         2
+          12    0.00000   0.00000   0.00000         1
+
+    accuracy                        0.74510       969
+   macro avg    0.44633   0.29899   0.29065       969
+weighted avg    0.76286   0.74510   0.71081       969
+
+Accuracy on test data: 0.3462916910648346
+Loss on test data: 1.69710918523932              precision    recall  f1-score   support
+
+           0    0.28715   0.24324   0.26338      1406
+           1    0.83383   0.41052   0.55017      1369
+           2    0.00000   0.00000   0.00000         1
+           3    0.18806   0.80769   0.30508       390
+           4    0.00000   0.00000   0.00000        27
+           5    0.48684   0.09711   0.16193       381
+           6    0.00000   0.00000   0.00000        18
+           7    0.00000   0.00000   0.00000        28
+           8    0.00000   0.00000   0.00000         1
+           9    0.00000   0.00000   0.00000         1
+          11    0.00000   0.00000   0.00000         5
+
+    accuracy                        0.34629      3627
+   macro avg    0.16326   0.14169   0.11641      3627
+weighted avg    0.49740   0.34629   0.35957      3627
+
+------------------------------------------
+Training File: I:\Lab\Real_Life_Event_Logs\Helpdesk\data\SplitterRandom\0.3\ReducerByTime\Pasquadibisceglie\inp_log_train_red_02.csv
+ Training-Test-Ratio: 03
+ Splitter: Random
+ Reducer: Time
+ Reduction Factor: 80
+ Test File: I:\Lab\Real_Life_Event_Logs\Helpdesk\data\SplitterRandom\0.3\ReducerByTime\Pasquadibisceglie\inp_log_test.csv
+              precision    recall  f1-score   support
+
+           0    0.60565   0.81707   0.69565       656
+           1    0.94775   0.83492   0.88776       630
+           2    1.00000   1.00000   1.00000         1
+           3    0.55836   0.51453   0.53555       344
+           4    0.00000   0.00000   0.00000         6
+           5    0.72917   0.42683   0.53846        82
+           6    1.00000   0.11765   0.21053        17
+           7    1.00000   0.11538   0.20690        78
+          10    1.00000   1.00000   1.00000         1
+          11    1.00000   0.66667   0.80000         6
+          12    0.00000   0.00000   0.00000         1
+
+    accuracy                        0.70856      1822
+   macro avg    0.71281   0.49937   0.53408      1822
+weighted avg    0.74053   0.70856   0.69733      1822
+
+Accuracy on test data: 0.5164047479629517
+Loss on test data: 1.166079219359815              precision    recall  f1-score   support
+
+           0    0.46795   0.41536   0.44009      1406
+           1    0.91700   0.67787   0.77950      1369
+           2    0.00000   0.00000   0.00000         1
+           3    0.21773   0.56667   0.31459       390
+           4    0.00000   0.00000   0.00000        27
+           5    0.39943   0.36483   0.38134       381
+           6    0.00000   0.00000   0.00000        18
+           7    0.25000   0.03571   0.06250        28
+           8    0.00000   0.00000   0.00000         1
+           9    0.00000   0.00000   0.00000         1
+          11    0.00000   0.00000   0.00000         5
+
+    accuracy                        0.51640      3627
+   macro avg    0.20474   0.18731   0.17982      3627
+weighted avg    0.59482   0.51640   0.53919      3627
+
+------------------------------------------
+Training File: I:\Lab\Real_Life_Event_Logs\Helpdesk\data\SplitterRandom\0.3\ReducerByTime\Pasquadibisceglie\inp_log_train_red_04.csv
+ Training-Test-Ratio: 03
+ Splitter: Random
+ Reducer: Time
+ Reduction Factor: 60
+ Test File: I:\Lab\Real_Life_Event_Logs\Helpdesk\data\SplitterRandom\0.3\ReducerByTime\Pasquadibisceglie\inp_log_test.csv
+              precision    recall  f1-score   support
+
+           0    0.69465   0.86055   0.76875      1298
+           1    0.92952   0.99685   0.96201      1270
+           2    0.00000   0.00000   0.00000         1
+           3    0.51751   0.27651   0.36043       481
+           4    0.00000   0.00000   0.00000         7
+           5    0.81250   0.31200   0.45087       125
+           6    1.00000   0.10000   0.18182        20
+           7    0.90000   0.10843   0.19355        83
+          10    0.50000   1.00000   0.66667         1
+          11    1.00000   0.66667   0.80000         6
+          12    0.00000   0.00000   0.00000         1
+
+    accuracy                        0.78075      3293
+   macro avg    0.57765   0.39282   0.39855      3293
+weighted avg    0.76946   0.78075   0.75144      3293
+
+Accuracy on test data: 0.7207058072090149
+Loss on test data: 0.8392692945336783              precision    recall  f1-score   support
+
+           0    0.67168   0.76245   0.71419      1406
+           1    0.87080   0.98466   0.92424      1369
+           2    0.00000   0.00000   0.00000         1
+           3    0.25460   0.21282   0.23184       390
+           4    0.00000   0.00000   0.00000        27
+           5    0.73333   0.28871   0.41431       381
+           6    0.00000   0.00000   0.00000        18
+           7    0.14286   0.03571   0.05714        28
+           8    0.00000   0.00000   0.00000         1
+           9    0.00000   0.00000   0.00000         1
+          11    0.00000   0.00000   0.00000         5
+
+    accuracy                        0.72071      3627
+   macro avg    0.24302   0.20767   0.21288      3627
+weighted avg    0.69457   0.72071   0.69460      3627
+
+------------------------------------------
+Training File: I:\Lab\Real_Life_Event_Logs\Helpdesk\data\SplitterRandom\0.3\ReducerByTime\Pasquadibisceglie\inp_log_train_red_06.csv
+ Training-Test-Ratio: 03
+ Splitter: Random
+ Reducer: Time
+ Reduction Factor: 40
+ Test File: I:\Lab\Real_Life_Event_Logs\Helpdesk\data\SplitterRandom\0.3\ReducerByTime\Pasquadibisceglie\inp_log_test.csv
+              precision    recall  f1-score   support
+
+           0    0.74167   0.81538   0.77678      1912
+           1    0.92379   0.99529   0.95821      1912
+           2    1.00000   1.00000   1.00000         1
+           3    0.48927   0.38191   0.42897       597
+           4    0.00000   0.00000   0.00000        13
+           5    0.76596   0.38298   0.51064       188
+           6    1.00000   0.09091   0.16667        22
+           7    1.00000   0.06024   0.11364        83
+          10    1.00000   1.00000   1.00000         1
+          11    1.00000   0.83333   0.90909         6
+          12    0.00000   0.00000   0.00000         1
+
+    accuracy                        0.79730      4736
+   macro avg    0.72006   0.50546   0.53309      4736
+weighted avg    0.78831   0.79730   0.77913      4736
+
+Accuracy on test data: 0.7394540905952454
+Loss on test data: 0.8308122987618353              precision    recall  f1-score   support
+
+           0    0.67374   0.79018   0.72733      1406
+           1    0.90087   0.98247   0.93990      1369
+           2    0.00000   0.00000   0.00000         1
+           3    0.29412   0.23077   0.25862       390
+           4    0.00000   0.00000   0.00000        27
+           5    0.75978   0.35696   0.48571       381
+           6    0.00000   0.00000   0.00000        18
+           7    0.00000   0.00000   0.00000        28
+           8    0.00000   0.00000   0.00000         1
+           9    0.00000   0.00000   0.00000         1
+          11    0.00000   0.00000   0.00000         5
+
+    accuracy                        0.73945      3627
+   macro avg    0.23896   0.21458   0.21923      3627
+weighted avg    0.71264   0.73945   0.71554      3627
+
+------------------------------------------
+Training File: I:\Lab\Real_Life_Event_Logs\Helpdesk\data\SplitterRandom\0.3\ReducerByTime\Pasquadibisceglie\inp_log_train_red_08.csv
+ Training-Test-Ratio: 03
+ Splitter: Random
+ Reducer: Time
+ Reduction Factor: 20
+ Test File: I:\Lab\Real_Life_Event_Logs\Helpdesk\data\SplitterRandom\0.3\ReducerByTime\Pasquadibisceglie\inp_log_test.csv
+              precision    recall  f1-score   support
+
+           0    0.68382   0.92000   0.78452      2600
+           1    0.92855   0.99101   0.95876      2557
+           2    1.00000   0.50000   0.66667         2
+           3    0.86207   0.03019   0.05834       828
+           4    0.00000   0.00000   0.00000        24
+           5    0.72902   0.54578   0.62423       557
+           6    0.66667   0.07143   0.12903        28
+           7    1.00000   0.07229   0.13483        83
+           8    1.00000   1.00000   1.00000         1
+           9    1.00000   1.00000   1.00000         1
+          10    1.00000   1.00000   1.00000         1
+          11    1.00000   0.85714   0.92308         7
+          12    0.00000   0.00000   0.00000         3
+
+    accuracy                        0.78796      6692
+   macro avg    0.75924   0.53753   0.55996      6692
+weighted avg    0.80480   0.78796   0.73415      6692
+
+Accuracy on test data: 0.774744987487793
+Loss on test data: 0.7339932100484283              precision    recall  f1-score   support
+
+           0    0.68575   0.90327   0.77962      1406
+           1    0.90928   0.98101   0.94378      1369
+           2    0.00000   0.00000   0.00000         1
+           3    0.33333   0.00769   0.01504       390
+           4    0.00000   0.00000   0.00000        27
+           5    0.67361   0.50919   0.57997       381
+           6    0.00000   0.00000   0.00000        18
+           7    0.00000   0.00000   0.00000        28
+           8    0.00000   0.00000   0.00000         1
+           9    0.00000   0.00000   0.00000         1
+          11    0.00000   0.00000   0.00000         5
+
+    accuracy                        0.77474      3627
+   macro avg    0.23654   0.21829   0.21076      3627
+weighted avg    0.71563   0.77474   0.72099      3627
+
+------------------------------------------
+Training File: I:\Lab\Real_Life_Event_Logs\Helpdesk\data\SplitterRandom\0.3\ReducerByTime\Pasquadibisceglie\inp_log_train_red_10.csv
+ Training-Test-Ratio: 03
+ Splitter: Random
+ Reducer: Time
+ Reduction Factor: 0
+ Test File: I:\Lab\Real_Life_Event_Logs\Helpdesk\data\SplitterRandom\0.3\ReducerByTime\Pasquadibisceglie\inp_log_test.csv
+              precision    recall  f1-score   support
+
+           0    0.70962   0.87712   0.78453      3296
+           1    0.91877   0.99906   0.95724      3204
+           2    1.00000   0.50000   0.66667         2
+           3    0.90000   0.02758   0.05352       979
+           4    0.00000   0.00000   0.00000        45
+           5    0.66878   0.70997   0.68876       893
+           6    1.00000   0.06818   0.12766        44
+           7    0.58333   0.08434   0.14737        83
+           8    1.00000   1.00000   1.00000         1
+           9    1.00000   1.00000   1.00000         1
+          10    1.00000   1.00000   1.00000         1
+          11    1.00000   0.85714   0.92308         7
+          12    0.00000   0.00000   0.00000         5
+
+    accuracy                        0.79115      8561
+   macro avg    0.75235   0.54795   0.56529      8561
+weighted avg    0.80194   0.79115   0.74161      8561
+
+Accuracy on test data: 0.7791563272476196
+Loss on test data: 0.6900616476021098              precision    recall  f1-score   support
+
+           0    0.71268   0.85917   0.77910      1406
+           1    0.90344   0.99781   0.94828      1369
+           2    0.00000   0.00000   0.00000         1
+           3    0.50000   0.01282   0.02500       390
+           4    0.00000   0.00000   0.00000        27
+           5    0.61139   0.64829   0.62930       381
+           6    0.00000   0.00000   0.00000        18
+           7    0.00000   0.00000   0.00000        28
+           8    0.00000   0.00000   0.00000         1
+           9    0.00000   0.00000   0.00000         1
+          11    0.00000   0.00000   0.00000         5
+
+    accuracy                        0.77916      3627
+   macro avg    0.24796   0.22892   0.21652      3627
+weighted avg    0.73526   0.77916   0.72874      3627
+
+------------------------------------------
